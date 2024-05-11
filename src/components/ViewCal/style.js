@@ -33,7 +33,7 @@ export const MENU_DIREITO = styled.div`
   }
   .btn-Agendar{
     width: 200px;
-    height: 40px;
+    height: 60px;
     background-color: #0B090A;
     color: #ffffff;
     border-radius: 15px;
@@ -48,6 +48,8 @@ export const MENU_DIREITO = styled.div`
  
    .CalEspaço {
     background-color: #161a1d;
+    width: 100%;
+    height: 100%;
   } 
   .itn_Equipe{
     display: flex;
@@ -59,6 +61,11 @@ export const MENU_DIREITO = styled.div`
     }
     
     .itn_servicos{
+      display: flex;
+     flex-direction: column;
+      margin-left: 10px;
+      gap: 20px;
+      font-size: 14px;
       background: #161A1D;
     }
   
