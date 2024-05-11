@@ -2,17 +2,20 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   /* Margem ao redor do calendário */
-  margin: 15px;
+  margin-right:15px;
+  margin-left :15px;
   /* Cor de fundo do calendário */
   background-color: #161a1d;
 
   /* Estilos para os botões de navegação do calendário */
   button {
     width: 55px;
-    height: 35px;
+    height: 40px;
     background-color: transparent;
     color: #ff8c00;
-    font-size: 30px;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
   }
 
   /* Estilos para o título do calendário */
@@ -26,7 +29,7 @@ export const Container = styled.div`
     justify-content: center;
     background-color: #161a1d;
     padding: 20px;
-    gap: 25px;
+    gap: 25px
   }
 
   /* Estilos para os dias da semana (domingo a sábado) */
@@ -58,8 +61,8 @@ export const Container = styled.div`
     gap: 10px;
     background-color: #161a1d;
     cursor: pointer;
-    width: 85.5vw;
-    height: 85.5vh;
+    width: 84vw;
+    height: 87vh;
     border: 2px solid #ff8c00; /* Cor e espessura da borda */
 }
 

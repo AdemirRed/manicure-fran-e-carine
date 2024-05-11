@@ -12,9 +12,7 @@ export const Container = styled.div`
  
 `;
 
-export const Header = styled.header`
-  // Estilos do cabeçalho
-`;
+
 
 export const MENU_DIREITO = styled.div`
   // Estilos do menu
@@ -22,8 +20,8 @@ export const MENU_DIREITO = styled.div`
   padding: 0px 20px 0px 20px;
   display: flex;
   flex-direction: column;
-  width: 232px;
-  min-height: 100vh;
+  width: 15vw;
+  min-height: 100%;
   gap: 15px;
   background-color: #161A1D;
 
@@ -47,6 +45,7 @@ export const MENU_DIREITO = styled.div`
   }
  
    .CalEspaço {
+    
     background-color: #161a1d;
     width: 100%;
     height: 100%;
