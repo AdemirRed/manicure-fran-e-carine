@@ -19,5 +19,8 @@ export default createGlobalStyle`
     color: #FFFFFF;
     /* background-color: blue; */
     max-width: 100%;
+    a,p,span,h3{
+    background-color: #161A1D;
+  }
 }
 `;
