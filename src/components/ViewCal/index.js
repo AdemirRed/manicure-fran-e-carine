@@ -3,6 +3,7 @@ import React from "react";
 import { Container, Header, MENU_DIREITO, Cal } from "./style";
 import { Button } from "../button";
 import { Calendario } from "../Calendario";
+import {HorarioAgendamento} from "../HorarioAgendamento";
 
 export function ViewCal() {
   React.useEffect(() => {}, []);
@@ -25,6 +26,9 @@ export function ViewCal() {
         >
           COMPARTILHAR LINK
         </Button>
+      <div className="CalEspaço">
+        <Calendario></Calendario>
+      </div>
 
         <p>EQUIPE:</p>
         <div className="itn_Equipe">
@@ -42,9 +46,8 @@ export function ViewCal() {
           <a href="">📒 Exemplos de serviços</a>
         </div>
       </MENU_DIREITO>
-      <div className="CalEspaço">
-        <Calendario></Calendario>
-      </div>
+     <div className="espaco"></div>
+      <HorarioAgendamento/>
     </Container>
   );
 }

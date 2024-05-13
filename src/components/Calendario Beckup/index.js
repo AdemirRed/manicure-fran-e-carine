@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "./style";
 
-
 export function Calendario() {
   // Estado para armazenar o dia selecionado
   const [diaSelecionado, setDiaSelecionado] = useState(null);
@@ -79,7 +78,20 @@ export function Calendario() {
     container.appendChild(div);
   };
 
-  
+  // Função para adicionar o dia do mês atual
+  const adicionarDiaMesAtual = (container, dia) => {
+    const div = document.createElement("div");
+    div.textContent = dia;
+    div.addEventListener("click", () => handleCliqueDia(dia));
+    if (eFimDeSemana(new Date(anoAtual, mesAtual, dia).getDay())) {
+      div.classList.add("fim-de-semana");
+    }
+    if (isDiaAtual(anoAtual, mesAtual, dia)) {
+      div.classList.add("dia-atual");
+    }
+    container.appendChild(div);
+  };
+
   // Função para adicionar o dia do próximo mês
   const adicionarDiaMesSeguinte = (container, dia) => {
     const div = document.createElement("div");
@@ -87,7 +99,7 @@ export function Calendario() {
     div.classList.add("outro-mes");
     container.appendChild(div);
   };
-  
+
   // Função chamada quando um dia é clicado
   const handleCliqueDia = (dia) => {
     setDiaSelecionado(dia);
@@ -108,31 +120,17 @@ export function Calendario() {
       return novoMes;
     });
   };
-  
+
   // Função para verificar se o dia é um fim de semana (Domingo ou Sábado)
   const eFimDeSemana = (dia) => {
     return dia === 0 || dia === 6; // Domingo (0) e Sábado (6)
   };
-  
+
   // Função para verificar se o dia é o dia atual
   const isDiaAtual = (ano, mes, dia) => {
     const dataAtual = new Date();
     return ano === dataAtual.getFullYear() && mes === dataAtual.getMonth() && dia === dataAtual.getDate();
   };
-  // Função para adicionar o dia do mês atual
-const adicionarDiaMesAtual = (container, dia) => {
-  const div = document.createElement("div");
-  div.textContent = dia;
-  div.addEventListener("click", () => handleCliqueDia(dia));
-  if (eFimDeSemana(new Date(anoAtual, mesAtual, dia).getDay())) {
-    div.classList.add("fim-de-semana");
-  }
-  if (isDiaAtual(anoAtual, mesAtual, dia)) {
-    div.style.backgroundColor = '#b6a484'; // Laranja claro para o dia atual
-  }
-  container.appendChild(div);
-};
-
 
   // Renderização do componente
   return (
@@ -145,13 +143,13 @@ const adicionarDiaMesAtual = (container, dia) => {
       </div>
       {/* Dias da semana */}
       <div className="dias-da-semana">
-        <span>Dom</span>
-        <span>Seg</span>
-        <span>Ter</span>
-        <span>Qua</span>
-        <span>Qui</span>
-        <span>Sex</span>
-        <span>Sáb</span>
+        <span>Domingo</span>
+        <span>Segunda</span>
+        <span>Terça</span>
+        <span>Quarta</span>
+        <span>Quinta</span>
+        <span>Sexta</span>
+        <span>Sábado</span>
       </div>
       {/* Container para os números dos dias */}
       <div id="numbers-container"></div>

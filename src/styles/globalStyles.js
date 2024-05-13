@@ -4,7 +4,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
  * {
-  overflow: hidden;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -22,6 +21,9 @@ export default createGlobalStyle`
     max-width: 100%;
     a,p,span,h3{
     background-color: #161A1D;
+    
+  
   }
+
 }
 `;

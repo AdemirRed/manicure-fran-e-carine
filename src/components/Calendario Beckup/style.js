@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  
-  
   /* Margem ao redor do calendário */
   margin-right:15px;
   margin-left :15px;
@@ -11,18 +9,18 @@ export const Container = styled.div`
 
   /* Estilos para os botões de navegação do calendário */
   button {
-    min-width: 30px;
-    min-height: 25px;
+    width: 55px;
+    height: 40px;
     background-color: transparent;
     color: #ff8c00;
-    font-size: 15px;
+    font-size: 35px;
     font-weight: bold;
     text-align: center;
   }
 
   /* Estilos para o título do calendário */
   h3 {
-    font-size: 20px;
+    font-size: 25px;
   }
 
   /* Estilos para o wrapper que contém os botões de navegação e o título */
@@ -30,17 +28,19 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     background-color: #161a1d;
-    padding: 20px 0px;
-    gap: 0px 15px
+    padding: 20px;
+    gap: 25px
   }
 
   /* Estilos para os dias da semana (domingo a sábado) */
   .dias-da-semana {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
     background-color: #161a1d;
     color: white;
     text-align: center;
+    padding: 5px;
   }
 
   /* Estilos para os dias da semana ao passar o mouse */
@@ -58,25 +58,26 @@ export const Container = styled.div`
   #numbers-container {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
+    gap: 10px;
     background-color: #161a1d;
     cursor: pointer;
-    max-width: 242;
-    max-height: 180px;
+    width: 84vw;
+    height: 87vh;
+    border: 2px solid #ff8c00; /* Cor e espessura da borda */
 }
 
 
   /* Estilos para os números (dias) do calendário */
   #numbers-container div {
     display: flex;
-    justify-content: center; /* Alinhamento do conteúdo à esquerda */
-    align-items: center; /* Alinhamento do conteúdo ao topo */
+    justify-content: flex-start; /* Alinhamento do conteúdo à esquerda */
+    align-items: flex-start; /* Alinhamento do conteúdo ao topo */
     color: white;
     transition: background-color 0.3s, border-color 0.3s;
     font-size: 16px; /* Ajuste o tamanho da fonte conforme necessário */
     background-color: #161a1d;
-    border: 1px solid #ff8c00; /* Cor e espessura da borda */
-    padding: 2px; /* Adiciona um espaço interno ao redor do número */
+    border: 2px solid #ff8c00; /* Cor e espessura da borda */
+    padding: 5px; /* Adiciona um espaço interno ao redor do número */
 }
 
 
@@ -96,7 +97,7 @@ export const Container = styled.div`
 
   /* Opacidade para os números que não estão no mês atual */
   #numbers-container div.outro-mes {
-    opacity: 0.4;
+    opacity: 0.5;
   }
 
   /* Estilos para destacar o dia atual */
@@ -104,5 +105,4 @@ export const Container = styled.div`
     background-color: #2e95d3;
     color: white;
   }
-  
 `;
