@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
+  position: fixed;
+    top: 91px;
+    left: 300px;
 `;
 
 export const Table = styled.table`
@@ -22,6 +25,7 @@ export const TableBody = styled.tbody`
 `;
 
 export const Th = styled.th`
+  width: 500px;
   padding: 10px;
   text-align: center;
   border: 1px solid #666;

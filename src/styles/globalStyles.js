@@ -11,7 +11,6 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    outline: none;
     //Config da fonte
     font-family: "Baloo Bhaina 2", sans-serif;
     font-optical-sizing: auto;

@@ -13,6 +13,10 @@ export const Container = styled.div`
  
 `;
 
+export const Artigo = styled.div`
+
+`;
+
 
 export const MENU_DIREITO = styled.div`
   // Estilos do menu

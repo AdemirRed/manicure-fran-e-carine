@@ -1,13 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "./style";
 
+// Função chamada quando um dia é clicado
+export  const handleCliqueDia = (dia) => {
+  // Lógica para exibir informações do cliente, hora e serviço para o dia selecionado
 
+  // Adicionando a classe 'selecionado' para simular que o dia está selecionado
+  const numbersContainer = document.getElementById("numbers-container");
+  if (numbersContainer) {
+    const days = numbersContainer.children;
+    const index = [...days].findIndex((element) => element.textContent === dia.toString());
+
+    if (index !== -1) {
+      const rowIndex = Math.floor(index / 7);
+      const rowStartIndex = rowIndex * 7;
+      const rowEndIndex = rowStartIndex + 7;
+      const selectedRowDays = [];
+      for (let i = rowStartIndex; i < rowEndIndex; i++) {
+        days[i].classList.add("selecionado");
+        selectedRowDays.push(days[i].textContent);
+      }
+      // Faça algo com os dias selecionados, como armazená-los em uma variável
+      console.log("Dias da linha selecionados:", selectedRowDays);
+      return selectedRowDays;
+    }
+  }
+};
 export function Calendario() {
   // Estado para armazenar o dia selecionado
   const [diaSelecionado, setDiaSelecionado] = useState(null);
   // Estados para armazenar o mês e o ano atual
   const [mesAtual, setMesAtual] = useState(new Date().getMonth());
   const [anoAtual, setAnoAtual] = useState(new Date().getFullYear());
+  // Estado para armazenar os dias da linha selecionada
+  const [diasLinhaSelecionada, setDiasLinhaSelecionada] = useState([]);
 
   // Efeito para renderizar o calendário sempre que houver mudança no mês ou no ano
   useEffect(() => {
@@ -88,11 +114,24 @@ export function Calendario() {
     container.appendChild(div);
   };
   
-  // Função chamada quando um dia é clicado
-  const handleCliqueDia = (dia) => {
-    setDiaSelecionado(dia);
-    // Lógica para exibir informações do cliente, hora e serviço para o dia selecionado
-  };
+  
+
+
+
+
+
+
+
+// Função para verificar se o dia é o dia atual
+const isDiaAtual = (ano, mes, dia) => {
+  const dataAtual = new Date();
+  return ano === dataAtual.getFullYear() && mes === dataAtual.getMonth() && dia === dataAtual.getDate();
+};
+
+// Verifica se o dia atual é o dia atual e chama handleCliqueDia se for
+if (isDiaAtual(new Date().getFullYear(), new Date().getMonth(), new Date().getDate())) {
+  handleCliqueDia(new Date().getDate());
+}
 
   // Função para mudar para o mês anterior ou próximo
   const mudarMes = (quantidade) => {
@@ -114,25 +153,24 @@ export function Calendario() {
     return dia === 0 || dia === 6; // Domingo (0) e Sábado (6)
   };
   
-  // Função para verificar se o dia é o dia atual
-  const isDiaAtual = (ano, mes, dia) => {
-    const dataAtual = new Date();
-    return ano === dataAtual.getFullYear() && mes === dataAtual.getMonth() && dia === dataAtual.getDate();
-  };
-  // Função para adicionar o dia do mês atual
-const adicionarDiaMesAtual = (container, dia) => {
-  const div = document.createElement("div");
-  div.textContent = dia;
-  div.addEventListener("click", () => handleCliqueDia(dia));
-  if (eFimDeSemana(new Date(anoAtual, mesAtual, dia).getDay())) {
-    div.classList.add("fim-de-semana");
-  }
-  if (isDiaAtual(anoAtual, mesAtual, dia)) {
-    div.style.backgroundColor = '#b6a484'; // Laranja claro para o dia atual
-  }
-  container.appendChild(div);
-};
 
+  // Função para adicionar o dia do mês atual
+  const adicionarDiaMesAtual = (container, dia) => {
+    const div = document.createElement("div");
+    div.textContent = dia;
+    div.addEventListener("click", () => handleCliqueDia(dia));
+    if (eFimDeSemana(new Date(anoAtual, mesAtual, dia).getDay())) {
+      div.classList.add("fim-de-semana");
+    }
+    if (isDiaAtual(anoAtual, mesAtual, dia)) {
+      div.style.backgroundColor = '#b6a484'; // Laranja claro para o dia atual
+    }
+    // Adicionando a classe 'selecionado' para simular que o dia está selecionado
+    if (dia === diaSelecionado) {
+      div.classList.add("selecionado");
+    }
+    container.appendChild(div);
+  };
 
   // Renderização do componente
   return (
@@ -157,6 +195,12 @@ const adicionarDiaMesAtual = (container, dia) => {
       <div id="numbers-container"></div>
       {/* Exibir o dia selecionado, se houver */}
       {diaSelecionado && <p>Dia selecionado: {diaSelecionado}</p>}
+      {/* Exibir os dias da linha selecionada, se houver */}
+      {diasLinhaSelecionada.length > 0 && (
+        <p>
+          Dias da linha selecionada: {diasLinhaSelecionada.join(", ")}
+        </p>
+      )}
     </Container>
   );
 }

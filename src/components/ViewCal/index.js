@@ -1,9 +1,10 @@
 // eslint-disable-next-line
 import React from "react";
-import { Container, Header, MENU_DIREITO, Cal } from "./style";
+import { Container,  MENU_DIREITO, Artigo } from "./style";
 import { Button } from "../button";
 import { Calendario } from "../Calendario";
 import {HorarioAgendamento} from "../HorarioAgendamento";
+import {MenuTopo} from "../MenuTopo";
 
 export function ViewCal() {
   React.useEffect(() => {}, []);
@@ -47,7 +48,10 @@ export function ViewCal() {
         </div>
       </MENU_DIREITO>
      <div className="espaco"></div>
+    <Artigo>
+     <MenuTopo/>
       <HorarioAgendamento/>
+      </Artigo>
     </Container>
   );
 }
