@@ -50,7 +50,7 @@ export function ViewCal() {
      <div className="espaco"></div>
     <Artigo>
      <MenuTopo/>
-      <HorarioAgendamento/>
+     <HorarioAgendamento/>
       </Artigo>
     </Container>
   );

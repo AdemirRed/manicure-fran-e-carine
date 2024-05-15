@@ -3,14 +3,13 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
-  position: fixed;
-    top: 91px;
-    left: 300px;
+  left: 300px;
+  overflow-x: auto; /* Adicionando overflow-x para permitir scroll horizontal */
+  margin-top: 90.5px;
 `;
 
 export const Table = styled.table`
   border-collapse: collapse;
-  width: 100%;
   max-width: 800px;
   margin: 0 auto;
 `;
@@ -25,16 +24,17 @@ export const TableBody = styled.tbody`
 `;
 
 export const Th = styled.th`
-  width: 500px;
   padding: 10px;
   text-align: center;
   border: 1px solid #666;
+  font-size: 20px;
 `;
 
 export const Td = styled.td`
   padding: 10px;
   text-align: center;
   border: 1px solid #666;
+  font-size: 20px;
 `;
 
 export const Tr = styled.tr`

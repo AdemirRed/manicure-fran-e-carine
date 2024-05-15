@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Table, TableHead, TableBody, Th, Tr, Td } from "./style";
-import { handleCliqueDia } from "../Calendario";
+import { handleCliqueDia, selectedRowDays } from "../Calendario";
 
 // Função para criar as células com os horários
 const criarCelulasHorarios = () => {
@@ -9,33 +9,46 @@ const criarCelulasHorarios = () => {
   for (let i = 0; i < 24; i++) {
     horarios.push(
       <Tr key={i}>
-        <Td>{`${i}:00`}</Td>
+        {/* Célula vazia na primeira coluna */}
+        <Td onClick={() => handleCliqueHora(i)}>
+          {`${i}:00`}
+        </Td>
+        {/* Células dos dias da semana */}
+        <Td></Td>
+        <Td></Td>
+        <Td></Td>
+        <Td></Td>
+        <Td></Td>
+        <Td></Td>
+        <Td></Td>
       </Tr>
     );
   }
   return horarios;
 };
 
+// Função para manipular o clique na célula de hora
+const handleCliqueHora = (hora) => {
+  // Implemente a lógica para abrir a janela flutuante e adicionar dados
+  console.log(`Clicou na hora ${hora}:00`);
+};
+
 // Componente HorarioAgendamento
 export function HorarioAgendamento({ diasSelecionados }) {
   // Array com os dias da semana
   const diasSemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
-  // const selectedRowDays = ["12", "13", "14", "15", "16", "17", "18"]; // Substitua pelos dias selecionados corretamente
-  diasSelecionados = handleCliqueDia.dia;
+
   return (
     <Container>
       {/* Tabela com os dias da semana e horários */}
       <Table>
         <TableHead>
           <Tr>
+            {/* Célula vazia na primeira linha */}
+            <Th></Th>
             {/* Cabeçalho com os dias da semana */}
             {diasSemana.map((dia, index) => (
-              <Th key={index}>
-                {/* Exibe o nome do dia da semana */}
-                {dia}
-                {/* Se houver um dia selecionado para este dia da semana, exibe-o */}
-                {diasSelecionados && diasSelecionados[index] && ` ${diasSelecionados[index]}`}
-              </Th>
+              <Th key={index}>{dia}</Th>
             ))}
           </Tr>
         </TableHead>

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "./style";
 
+// Array para armazenar os dias selecionados
+let selectedRowDays = [];
+
 // Função chamada quando um dia é clicado
-export  const handleCliqueDia = (dia) => {
+export const handleCliqueDia = (dia) => {
   // Lógica para exibir informações do cliente, hora e serviço para o dia selecionado
 
   // Adicionando a classe 'selecionado' para simular que o dia está selecionado
@@ -15,17 +18,20 @@ export  const handleCliqueDia = (dia) => {
       const rowIndex = Math.floor(index / 7);
       const rowStartIndex = rowIndex * 7;
       const rowEndIndex = rowStartIndex + 7;
-      const selectedRowDays = [];
+      selectedRowDays = [];
       for (let i = rowStartIndex; i < rowEndIndex; i++) {
         days[i].classList.add("selecionado");
         selectedRowDays.push(days[i].textContent);
       }
       // Faça algo com os dias selecionados, como armazená-los em uma variável
       console.log("Dias da linha selecionados:", selectedRowDays);
-      return selectedRowDays;
     }
   }
 };
+
+// Exportar a array selectedRowDays
+export { selectedRowDays };
+
 export function Calendario() {
   // Estado para armazenar o dia selecionado
   const [diaSelecionado, setDiaSelecionado] = useState(null);

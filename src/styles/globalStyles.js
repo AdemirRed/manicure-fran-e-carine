@@ -20,7 +20,7 @@ export default createGlobalStyle`
     max-width: 100%;
     a,p,span,h3{
     background-color: #161A1D;
-    
+    overflow-x: auto;
   
   }
 

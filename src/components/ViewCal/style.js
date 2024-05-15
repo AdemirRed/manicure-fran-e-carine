@@ -14,7 +14,6 @@ export const Container = styled.div`
 `;
 
 export const Artigo = styled.div`
-
 `;
 
 
